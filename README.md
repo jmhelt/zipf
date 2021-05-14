@@ -1,0 +1,2 @@
+# zipf
+Zipf distribution generator
