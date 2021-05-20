@@ -7,6 +7,7 @@ namespace zipf {
 
 class Generator {
    public:
+    virtual ~Generator() {}
     virtual uint64_t sample() = 0;
 };
 

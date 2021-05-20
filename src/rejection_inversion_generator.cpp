@@ -44,7 +44,7 @@ uint64_t RejectionInverstionGenerator::sample() {
         // due to numerical inaccuracies.
         if (k < 1) {
             k = 1;
-        } else if (k > num_elements_) {
+        } else if (k > static_cast<uint64_t>(num_elements_)) {
             k = num_elements_;
         }
 

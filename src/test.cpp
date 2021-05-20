@@ -8,7 +8,7 @@
 #include "zipf/rejection_inversion_generator.h"
 #include "zipf/ycsb_generator.h"
 
-void print_usage(int argc, char* argv[]) {
+void print_usage(char* argv[]) {
     std::cout << "Usage: " << argv[0] << " [-h]"
               << " -g <generator: ycsb,rejinv>"
               << " -e <num_elements>"
@@ -42,13 +42,13 @@ int main(int argc, char* argv[]) {
             case '?':
             case 'h':
             default:
-                print_usage(argc, argv);
+                print_usage(argv);
                 return 1;
         }
     }
 
     if (num_elements <= 0 || skew <= 0.0 || num_samples <= 0) {
-        print_usage(argc, argv);
+        print_usage(argv);
         return 1;
     }
 
@@ -59,7 +59,7 @@ int main(int argc, char* argv[]) {
     } else if (generator == "rejinv") {
         gen = new zipf::RejectionInverstionGenerator(num_elements, skew);
     } else {
-        print_usage(argc, argv);
+        print_usage(argv);
         return 1;
     }
 
